@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/Resevation.css') }}">
+</head>
+<body>
+
+<section class="intro">
+    <div class="bg-image h-100" style="background-image:linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card mask-custom">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-borderless text-white mb-0">
+                      <thead>
+                        <tr>
+                          <th scope="col">RESERVATION ID</th>
+                          <th scope="col">RESERVED DATE & TIME</th>
+                          <th scope="col">RESERVED SEATS</th>
+                          <th scope="col">ACTION</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for row in reserve %}
+                        <tr>
+                          <td>{{row.0}}</td>
+                          <th scope="row">{{row.1}}</th>
+                          <td>{{row.2}}</td>
+                          <td>
+                            <a href="/delete/{{row.0}}"><button type="button" class="btn btn-danger" style="padding: 4px; font-size: 14px; color: #ee7724; background-color: white;"><b>Delete</b></button></a>
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
